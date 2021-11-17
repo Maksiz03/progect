@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace power
+namespace task1Double
 {
     class Program
     {
