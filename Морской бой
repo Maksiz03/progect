@@ -1,0 +1,54 @@
+using System;
+
+namespace ClassLibrary2
+{
+    public class Battleship
+    {
+        public const int mapSize = 10;
+        public static string[] str1 = { "а", "б", "в", "г", "д", "е", "ж", "з", "и", "к" };
+        public static  string[] str2 = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+        public int[,] myMap = new int[mapSize, mapSize];
+        public Battleship(int count)
+        {
+            if (count >= 0)
+            {        
+                int number1 = 0;
+                string letter = Console.ReadLine();
+                int number2 = Int32.Parse(Console.ReadLine());
+                for(int i=0; i<str1.Length;i++)
+                {
+                    if (str1[i] == letter)
+                        number1 = i;
+                }
+                if (myMap[number1, number2] == 1)
+                {
+                    Console.WriteLine("попал");
+                    myMap[number1, number2] = 0;
+                    count += 1;
+                }
+                else
+                    Console.WriteLine("мимо");
+            }
+        }
+        public void Init()
+        {
+            int letter = (str1[new Random().Next(0, str1.Length)]).Length;
+            int number = (str2[new Random().Next(0, str2.Length)]).Length;
+            myMap[letter, number] = 1;
+        }
+        public void CreateMap()
+        {
+            for(int i =0; i<mapSize;i++)
+            {
+                for(int j=0; j < mapSize; j++)
+                {
+                    myMap[i, j] = 0;
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            //не знаю как запустить это все
+        }
+    }
+}
