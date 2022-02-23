@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp13
+{
+// Завьялов Максим
+    public class queue
+    {
+        Stack<int> stack1 = new Stack<int>();
+        Stack<int> stack2 = new Stack<int>();
+        public void Quene(int item)
+        {
+            stack1.Push(item);
+
+        }
+        public int Dequene()
+        {
+            if (stack2.Count == 0)
+            {
+                while (stack1.Count != 0)
+                {
+                    stack2.Push(stack1.Pop());
+                }
+            }
+            return stack2.Pop();
+        }
+    }
+}
