@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ConsoleApp10
+{
+    public class Program
+    {
+        static List<string> LlistWithoutRepetitions(List<string> firstList, List<string> secondList)
+        {
+            List<string> result = new List<string>();
+            result = firstList.ToList();
+            for (int j = 0; j < secondList.Count; j++)
+            {
+                if (!result.Contains(secondList[j]))
+                    result.Add(secondList[j]);
+            }
+            return result;
+        }
+        static void Main()
+        {
+            List<string> firstListTest = new List<string> { "a", "b", "c", "d" };
+            List<string> secondListTest = new List<string> { "b", "c", "d", "e" };
+            LlistWithoutRepetitions(firstListTest, secondListTest);
+        }
+    }
+}
